@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <style>
+        span{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<h1>Wellcome to homepage</h1>
+<!--/*@thymesVar id="user" type="com.codegym.model.User"*/-->    compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+
+<form method="post" th:action="@{/result}" th:object="${user}">
+    <label for="firstname">First Name(*): </label>
+    <input type="text" th:field="*{firstName}" id="firstname"><br>
+    <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span><br>
+
+    <label for="lastname">Last Name(*): </label>
+    <input type="text" th:field="*{lastName}" id="lastname"><br>
+    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span><br>
+
+    <label for="age">Age: </label>
+    <input type="text" th:field="*{age}" id="age"><br>
+    <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span><br>
+
+    <label for="number">Phone number: </label>
+    <input type="text" th:field="*{number}" id="number"><br>
+    <span th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></span><br>
+
+    <label for="email">Email: </label>
+    <input type="text" th:field="*{email}" id="email"><br>
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br>
+
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>
